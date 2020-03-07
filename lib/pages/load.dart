@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Load extends StatefulWidget {
   @override
@@ -21,18 +22,9 @@ class _LoadState extends State<Load> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              'This will be the loading screen',
-              style: TextStyle(
-                  color: Colors.black,
-                  letterSpacing: 1.5,
-                  fontSize: 30.0,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
+        child: SpinKitFadingFour(
+          color: Colors.white,
+          size: 50.0,
         ),
       ),
     );

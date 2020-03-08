@@ -7,8 +7,8 @@ class BuildWalkthroughInput extends StatefulWidget {
 }
 
 class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
-  Item dropdown ;
-  List<Item> menu= [
+  Item dropdown;
+  List<Item> menu = [
     Item(
       icon: Icon(
         Icons.flag,
@@ -21,7 +21,6 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
         Icons.flag,
         color: Colors.grey[800],
       ),
-
       name: '+93',
     ),
     Item(
@@ -33,26 +32,23 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
     ),
   ].toList();
 
-
   @override
   void initState() {
     super.initState();
     dropdown = menu.elementAt(0);
   }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(20),
-      decoration: BoxDecoration(
-          color: Colors.grey[50],
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey,
-              blurRadius: 15.0,
-              spreadRadius: 0.5,
-            )
-          ]
-      ),
+      decoration: BoxDecoration(color: Colors.grey[50], boxShadow: [
+        BoxShadow(
+          color: Colors.grey,
+          blurRadius: 15.0,
+          spreadRadius: 0.5,
+        )
+      ]),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -66,35 +62,38 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
               ),
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
 
           //This includes the contact number input part-
           //a dropDownList and a textfield
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              DropdownButton<Item>(
-                value: dropdown,
-                iconSize: 30,
-                isDense: false,
-                iconEnabledColor: Colors.grey[800],
-                style: TextStyle(
-                  color: Colors.grey[800],
-                ),
-                underline: Container(
-                  height: 2,
-                  color: Colors.grey[800],
-                ),
-                onChanged: (Item s){
-                  setState(() {
-                    dropdown = s;
-                  });
-                },
-                items: menu.map((Item drop){
-                  return DropdownMenuItem<Item>(
-                    value: drop,
-                    child: Row(
-                        children: <Widget>[
+          Container(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: <Widget>[
+                Container(
+                  child: DropdownButton<Item>(
+                    value: dropdown,
+                    iconSize: 30,
+                    isDense: true,
+                    iconEnabledColor: Colors.grey[800],
+                    style: TextStyle(
+                      color: Colors.grey[800],
+                    ),
+                    underline: Container(
+                      height: 2,
+                      color: Colors.grey[800],
+                    ),
+                    onChanged: (Item s) {
+                      setState(() {
+                        dropdown = s;
+                      });
+                    },
+                    items: menu.map((Item drop) {
+                      return DropdownMenuItem<Item>(
+                        value: drop,
+                        child: Row(children: <Widget>[
                           drop.icon,
                           Text(
                             drop.name,
@@ -103,69 +102,63 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
                               fontSize: 20,
                             ),
                           )
-                        ]
-                    ),
-                  );
-                }).toList(),
-              ),
-              SizedBox(width: 20,),
-              Expanded(
-                child: Container(
-                  child: TextField(
-                    controller: TextEditingController(),
-                    onSubmitted: (String s){},
-                    style: TextStyle(
-                      color: Colors.grey[800],
-                      fontSize: 20
-                    ),
-                    keyboardType: TextInputType.number,
-                    decoration: InputDecoration(
-                        hintText: '  9055112423',
-                        hintStyle: TextStyle(
-                            color: Colors.grey[500],
-                            fontSize: 20
-                        ),
-                        enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Colors.grey[800],
-                                width: 2
-                            )
-                        )
-                    ),
-
+                        ]),
+                      );
+                    }).toList(),
                   ),
                 ),
-              )
-            ],
+                SizedBox(
+                  width: 20,
+                ),
+                Expanded(
+                  child: Container(
+                    child: TextField(
+                      controller: TextEditingController(),
+                      onSubmitted: (String s) {},
+                      style: TextStyle(color: Colors.grey[800], fontSize: 20),
+                      keyboardType: TextInputType.number,
+                      decoration: InputDecoration(
+                          contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                          hintText: '9055112423',
+                          hintStyle:
+                              TextStyle(color: Colors.grey[500], fontSize: 20),
+                          isDense: true,
+                          enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Colors.grey[800], width: 1))),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
 
           //The continue button
           Row(
             children: <Widget>[
               Expanded(
                 child: FlatButton(
-                  onPressed: (){
+                  onPressed: () {
                     Navigator.pushNamed(context, '/otp');
                   },
                   padding: EdgeInsets.all(25),
                   color: Colors.black,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)
-                  ),
+                      borderRadius: BorderRadius.circular(10)),
                   child: Text(
                     'CONTINUE',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20
-                    ),
+                    style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 15,),
-
+          SizedBox(
+            height: 15,
+          ),
 
           //The text part with hyperlinks for T&C and Privacy Policy
           Container(
@@ -191,7 +184,7 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
                           decoration: TextDecoration.underline,
                         ),
                       ),
-                      onTap: (){},
+                      onTap: () {},
                     ),
                     Text(
                       ' and',
@@ -203,7 +196,7 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0,4,0,0),
+                  padding: const EdgeInsets.fromLTRB(0, 4, 0, 0),
                   child: GestureDetector(
                     child: Text(
                       'Privacy and Policy',
@@ -213,7 +206,7 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
                         decoration: TextDecoration.underline,
                       ),
                     ),
-                    onTap: (){},
+                    onTap: () {},
                   ),
                 ),
               ],
@@ -224,5 +217,3 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
     );
   }
 }
-
-

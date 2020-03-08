@@ -146,7 +146,7 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
               Expanded(
                 child: FlatButton(
                   onPressed: (){
-                    Navigator.pushReplacementNamed(context, '/home');
+                    Navigator.pushNamed(context, '/otp');
                   },
                   padding: EdgeInsets.all(25),
                   color: Colors.black,

@@ -4,6 +4,7 @@ import 'package:mobileuiux/pages/otp_screen.dart';
 import 'package:mobileuiux/pages/tell_more.dart';
 import 'package:mobileuiux/pages/walkthrough.dart';
 import 'package:mobileuiux/pages/load.dart';
+import 'package:mobileuiux/pages/billPage.dart';
 
 void main() => runApp(myApp());
 
@@ -23,6 +24,7 @@ Widget myApp() {
       '/tellmore': (context) => TellMore(),
       '/walkthrough': (context) => WalkThrough(),
       '/otp': (context) => OtpScreen(),
+      '/billPage' : (context) => BillPage(),
     },
   );
 }

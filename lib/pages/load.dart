@@ -8,7 +8,7 @@ class Load extends StatefulWidget {
 
 class _LoadState extends State<Load> {
   void logoshow() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 1));
     Navigator.pushReplacementNamed(context, '/walkthrough');
   }
 

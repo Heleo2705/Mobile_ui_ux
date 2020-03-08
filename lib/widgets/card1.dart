@@ -97,39 +97,61 @@ class _CardState extends State<Card1> {
                 )
               ],
             ),
-//          trailing: Container(
-//            child: Column(
-//              children: <Widget>[
-//                Container(
-//                  child: Text(
-//                    '@ 20000',
-//                    style: TextStyle(
-//                      fontSize: 30,
-//                      color: Colors.black54,
-//                    ),
-//                  ),
-//                ),
-//                Container(
-//                  child: Row(
-//                    children: <Widget>[
-//                      Text(
-//                        'VIEW RECEIPT',
-//                        style: TextStyle(
-//                          fontSize: 12,
-//                          color: Colors.white24
-//                        ),
-//                      ),
-//                      Icon(
-//                        Icons.arrow_forward_ios,
-//                        size: 12,
-//                        color: Colors.white24,
-//                      )
-//                    ],
-//                  ),
-//                )
-//              ],
-//            ),
-//          ),
+            trailing: SizedBox(
+              width: 150,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        SizedBox(width: 40,),
+                        Text(
+                          '@ 20000',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.w600
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 8,),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.pushNamed(context, '/billPage');
+                    },
+                    child: Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          Text(
+                            'VIEW RECEIPT',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey[700],
+                              decoration: TextDecoration.underline,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            size: 12,
+                            color: Colors.grey[700],
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
 
           )
         ],

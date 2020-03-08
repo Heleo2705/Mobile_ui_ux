@@ -7,3 +7,4 @@
     is pressed, it navigates to otp screen.
  * On otp screen, continue button replaces screen and goes to home
  * Home has a Two tabbed interface and a left drawer.
+ * On any product card, if view bill is tapped, A bil page is pushed upon

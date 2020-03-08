@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:mobileuiux/widgets/card1.dart';
 import 'package:mobileuiux/widgets/Drawer.dart';
 import 'package:mobileuiux/widgets/NoBillsScreen.dart';
-
+import 'package:mobileuiux/widgets/card1.dart';
 
 
 class Home extends StatefulWidget {

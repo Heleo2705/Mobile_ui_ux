@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobileuiux/widgets/WalkthorughBackground.dart';
+import 'package:mobileuiux/widgets/WalkthoughInput.dart';
 
 
 class WalkThrough extends StatefulWidget {
@@ -7,8 +10,23 @@ class WalkThrough extends StatefulWidget {
 }
 
 class _WalkThroughState extends State<WalkThrough> {
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child:Stack(
+          alignment: Alignment.bottomCenter,
+          children: <Widget>[
+            buildWalkthroughBackground(),
+            BuildWalkthroughInput(),
+          ],
+        )
+      ),
+    );
   }
+
+
+
 }

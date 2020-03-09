@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobileuiux/widgets/Drawer.dart';
-import 'package:mobileuiux/widgets/NoBillsScreen.dart';
+import 'package:mobileuiux/widgets/Upgrade_premium.dart';
 import 'package:mobileuiux/widgets/card1.dart';
 
 
@@ -21,7 +21,7 @@ class _HomeState extends State<Home> {
           bottom: TabBar(
             tabs: <Widget>[
               Tab(icon: Icon(Icons.business), text: 'Bills'),
-              Tab(icon: Icon(Icons.home), text: 'Loyalty Programs'),
+              Tab(icon: Icon(Icons.card_giftcard), text: 'Premium'),
             ],
           ),
           title: Text(''),
@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
                   },
                 )
               ),
-              buildNoBills(),
+              buildUpgrade(),
             ],
           ),
         ),

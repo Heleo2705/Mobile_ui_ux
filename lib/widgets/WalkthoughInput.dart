@@ -73,38 +73,45 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
                 Container(
-                  child: DropdownButton<Item>(
-                    value: dropdown,
-                    iconSize: 30,
-                    isDense: true,
-                    iconEnabledColor: Colors.grey[800],
-                    style: TextStyle(
-                      color: Colors.grey[800],
+                  child: Theme(
+                    data: ThemeData(
+                      brightness: Brightness.light,
+                      primaryColor: Colors.black,
+                      accentColor: Colors.black,
                     ),
-                    underline: Container(
-                      height: 2,
-                      color: Colors.grey[800],
+                    child: DropdownButton<Item>(
+                      value: dropdown,
+                      iconSize: 30,
+                      isDense: true,
+                      iconEnabledColor: Colors.grey[800],
+                      style: TextStyle(
+                        color: Colors.grey[800],
+                      ),
+                      underline: Container(
+                        height: 2,
+                        color: Colors.grey[800],
+                      ),
+                      onChanged: (Item s) {
+                        setState(() {
+                          dropdown = s;
+                        });
+                      },
+                      items: menu.map((Item drop) {
+                        return DropdownMenuItem<Item>(
+                          value: drop,
+                          child: Row(children: <Widget>[
+                            drop.icon,
+                            Text(
+                              drop.name,
+                              style: TextStyle(
+                                color: Colors.grey[800],
+                                fontSize: 20,
+                              ),
+                            )
+                          ]),
+                        );
+                      }).toList(),
                     ),
-                    onChanged: (Item s) {
-                      setState(() {
-                        dropdown = s;
-                      });
-                    },
-                    items: menu.map((Item drop) {
-                      return DropdownMenuItem<Item>(
-                        value: drop,
-                        child: Row(children: <Widget>[
-                          drop.icon,
-                          Text(
-                            drop.name,
-                            style: TextStyle(
-                              color: Colors.grey[800],
-                              fontSize: 20,
-                            ),
-                          )
-                        ]),
-                      );
-                    }).toList(),
                   ),
                 ),
                 SizedBox(

@@ -5,6 +5,7 @@ import 'package:mobileuiux/pages/tell_more.dart';
 import 'package:mobileuiux/pages/walkthrough.dart';
 import 'package:mobileuiux/pages/load.dart';
 import 'package:mobileuiux/pages/billPage.dart';
+import 'package:mobileuiux/pages/questions/q1.dart';
 
 void main() => runApp(myApp());
 
@@ -25,6 +26,7 @@ Widget myApp() {
       '/walkthrough': (context) => WalkThrough(),
       '/otp': (context) => OtpScreen(),
       '/billPage' : (context) => BillPage(),
+      '/q1' : (context) => Q1(),
     },
   );
 }

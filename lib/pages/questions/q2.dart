@@ -56,7 +56,7 @@ class _Q2State extends State<Q2> {
                             print('change $date');
                           }, onConfirm: (date) {
                             print('confirm $date');
-                          }, currentTime: DateTime.now(), locale: LocaleType.en);
+                          }, currentTime: DateTime(1990, 1, 1), locale: LocaleType.en);
                     },
                     child: Text(
                       'Select Birthday',

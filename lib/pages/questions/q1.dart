@@ -77,6 +77,7 @@ class _Q1State extends State<Q1> {
                                 tapped1 = true;
                                 tapped2 = false;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         ),
@@ -105,6 +106,7 @@ class _Q1State extends State<Q1> {
                                 tapped1 = false;
                                 tapped2 = true;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         )

@@ -82,6 +82,7 @@ class _Q5State extends State<Q5> {
                                 tapped3 = false;
                                 tapped4 = false;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         ),
@@ -112,6 +113,7 @@ class _Q5State extends State<Q5> {
                                 tapped3 = false;
                                 tapped4 = false;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         ),
@@ -142,6 +144,7 @@ class _Q5State extends State<Q5> {
                                 tapped3 = true;
                                 tapped4 = false;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         ),
@@ -172,6 +175,7 @@ class _Q5State extends State<Q5> {
                                 tapped3 = false;
                                 tapped4 = true;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         ),

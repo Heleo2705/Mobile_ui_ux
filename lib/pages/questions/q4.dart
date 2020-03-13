@@ -10,6 +10,7 @@ class Q4 extends StatefulWidget {
 class _Q4State extends State<Q4> {
   bool tapped1 = false;
   bool tapped2 = false;
+  bool tapped3 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,7 +78,9 @@ class _Q4State extends State<Q4> {
                               setState(() {
                                 tapped1 = true;
                                 tapped2 = false;
+                                tapped3 = false;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         ),
@@ -105,7 +108,37 @@ class _Q4State extends State<Q4> {
                               setState(() {
                                 tapped1 = false;
                                 tapped2 = true;
+                                tapped3 = false;
                               });
+                              Navigator.of(context).push(_createRoute());
+                            },
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                        SizedBox(
+                          width: 350,
+                          child: FlatButton(
+                            padding: EdgeInsets.all(10),
+                            color: tapped3? Color(0xffe1f4f3):Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
+                                side: BorderSide(
+                                    color: Colors.black,
+                                    width: 2
+                                )
+                            ),
+                            child: Text(
+                              'Skip',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 25,
+                              ),
+                            ),
+                            onPressed: (){
+                              tapped1 = false;
+                              tapped2 = false;
+                              tapped3 = true;
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         )

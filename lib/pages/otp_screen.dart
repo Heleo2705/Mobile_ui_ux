@@ -184,7 +184,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   width: 350,
                   child: OutlineButton(
                     onPressed: (){
-                      Navigator.pushReplacementNamed(context, '/q1');
+                      Navigator.pushReplacementNamed(context, '/home');
                     },
                     textColor: Colors.black,
                     shape: RoundedRectangleBorder(

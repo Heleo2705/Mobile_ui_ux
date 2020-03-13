@@ -31,6 +31,7 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
       name: '+94',
     ),
   ].toList();
+  TextEditingController controller = TextEditingController();
 
   @override
   void initState() {
@@ -118,24 +119,27 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
                   width: 20,
                 ),
                 Expanded(
-                  child: Container(
-                    child: TextField(
-                      controller: TextEditingController(),
-                      onSubmitted: (String s) {},
-                      style: TextStyle(color: Colors.grey[800], fontSize: 20),
-                      keyboardType: TextInputType.number,
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                          hintText: '9055112423',
-                          hintStyle:
-                              TextStyle(color: Colors.grey[500], fontSize: 20),
-                          isDense: true,
-                          enabledBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                  color: Colors.grey[800], width: 1))),
+                  child: TextField(
+                    controller: controller,
+                    onChanged: (text) {
+                      controller.text = text;
+                      controller.selection = TextSelection.collapsed(offset: controller.text.length);
+                    },
+                    style: TextStyle(color: Colors.grey[800], fontSize: 20),
+                    keyboardType: TextInputType.number,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.fromLTRB(0, 18, 10, 0),
+                      hintText: '9055113333',
+                      hintStyle:TextStyle(color: Colors.grey[500], fontSize: 20),
+                      border: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Colors.black,
+                              width: 2
+                          )
+                      )
                     ),
                   ),
-                ),
+                )
               ],
             ),
           ),

@@ -13,6 +13,7 @@ class _Q6State extends State<Q6> {
   bool tapped3 = false;
   bool tapped4 = false;
   bool tapped5 = false;
+  bool tapped6 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,7 +85,9 @@ class _Q6State extends State<Q6> {
                                 tapped3 = false;
                                 tapped4 = false;
                                 tapped5 = false;
+                                tapped6 = false;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         ),
@@ -115,7 +118,9 @@ class _Q6State extends State<Q6> {
                                 tapped3 = false;
                                 tapped4 = false;
                                 tapped5 = false;
+                                tapped6 = false;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         ),
@@ -146,7 +151,9 @@ class _Q6State extends State<Q6> {
                                 tapped3 = true;
                                 tapped4 = false;
                                 tapped5 = false;
+                                tapped6 = false;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         ),
@@ -177,7 +184,9 @@ class _Q6State extends State<Q6> {
                                 tapped3 = false;
                                 tapped4 = true;
                                 tapped5 = false;
+                                tapped6 = false;
                               });
+                              Navigator.of(context).push(_createRoute());
                             },
                           ),
                         ),
@@ -208,6 +217,43 @@ class _Q6State extends State<Q6> {
                                 tapped3 = false;
                                 tapped4 = false;
                                 tapped5 = true;
+                                tapped6 = false;
+                              });
+                              Navigator.of(context).push(_createRoute());
+                            },
+                          ),
+                        ),
+                        SizedBox(height: 5,),
+                        SizedBox(
+                          width: 350,
+                          child: FlatButton(
+                            padding: EdgeInsets.all(10),
+                            color: tapped6? Color(0xffe1f4f3):Colors.white,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
+                                side: BorderSide(
+                                    color: Colors.black,
+                                    width: 2
+                                )
+                            ),
+                            child: Text(
+                              'Skip',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 25,
+                              ),
+                            ),
+                            onPressed: (){
+                              setState(() {
+                                setState(() {
+                                  tapped1 = false;
+                                  tapped2 = false;
+                                  tapped3 = false;
+                                  tapped4 = false;
+                                  tapped5 = false;
+                                  tapped6 = true;
+                                });
+                                Navigator.of(context).push(_createRoute());
                               });
                             },
                           ),
@@ -227,7 +273,7 @@ class _Q6State extends State<Q6> {
                       children: <Widget>[
                         new DotsIndicator(
                           dotsCount: 7,
-                          position: 6,
+                          position: 5,
                           decorator: DotsDecorator(
                             color: Color(0xffe1f4f3),
                             activeColor: Colors.grey,

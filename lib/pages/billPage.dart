@@ -19,24 +19,7 @@ class _BillPageState extends State<BillPage> {
           color: Colors.black,
           size: 30
         ),
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.chat),
-            onPressed: (){},
-          ),
-          IconButton(
-            icon: Icon(Icons.share),
-            onPressed: (){},
-          ),
-          IconButton(
-            icon: Icon(Icons.file_download),
-            onPressed: (){},
-          ),
-        ],
-        actionsIconTheme: IconThemeData(
-            color: Colors.black,
-            size: 30
-        ),
+
       ),
       body: Container(
         child: Column(

@@ -14,7 +14,7 @@ class _BillCardState extends State<BillCard> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(15.0,0,15,0),
+      padding: const EdgeInsets.fromLTRB(0,0,0,0),
       child: Container(
         color: Colors.white,
         padding: EdgeInsets.all(15),

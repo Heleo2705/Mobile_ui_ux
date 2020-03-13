@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:mobileuiux/pages/questions/q4.dart';
-
+//import 'package:flutter_google_places/flutter_google_places.dart';
 
 class Q3 extends StatefulWidget {
   @override
@@ -9,15 +9,8 @@ class Q3 extends StatefulWidget {
 }
 
 class _Q3State extends State<Q3> {
-  String dropdownValue ;
-  List<String> values = ['Delhi','Mumbai','Chennai','Bangalore','Raipur'];
-
-  @override
-  void initState() {
-
-    super.initState();
-    dropdownValue = values.elementAt(0);
-  }
+  String stringValue ;
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +45,7 @@ class _Q3State extends State<Q3> {
                         Container(
                           padding: EdgeInsets.all(15),
                           child: Text(
-                            'Choose your city',
+                            'CITY',
                             style: TextStyle(
                               fontWeight: FontWeight.w900,
                               fontSize: 25,
@@ -63,47 +56,26 @@ class _Q3State extends State<Q3> {
                         SizedBox(height: 20,),
                         Container(
                           padding: EdgeInsets.fromLTRB(50,10,50,10),
-                          decoration: BoxDecoration(
-                            border: Border.all(width: 2),
-                            borderRadius: BorderRadius.circular(50)
-                          ),
+
                           child: Theme(
                             data: ThemeData(
                               brightness: Brightness.light,
                               primaryColor: Colors.black,
                               accentColor: Colors.black,
                             ),
-                            child: DropdownButton<String>(
-                              value: dropdownValue,
-                              icon: Icon(
-                                Icons.arrow_forward,
-                                color: Colors.black,
-                                size: 20,
-                              ),
-                              iconSize: 24,
-                              elevation: 16,
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 20,
+                            child: Container(
+                              child: TextField(
+                                decoration: InputDecoration(
 
+                                  hintText: 'Enter your city',
+                                ),
+                                controller: controller,
+                                onChanged: (text){
+                                  controller.text = text;
+                                  controller.selection = TextSelection.collapsed(offset: controller.text.length);
+                                },
                               ),
-                              underline: Container(
-                                color: Colors.transparent,
-                              ),
-                              isDense: true,
-                              onChanged: (String newValue) {
-                                setState(() {
-                                  dropdownValue = newValue;
-                                });
-                              },
-
-                              items: values.map<DropdownMenuItem<String>>((String value) {
-                                return DropdownMenuItem<String>(
-                                  value: value,
-                                  child: Text(value),
-                                );
-                              }).toList(),
-                            ),
+                            )
                           ),
                         )
                       ],

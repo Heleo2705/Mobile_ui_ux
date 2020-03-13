@@ -142,31 +142,7 @@ Drawer buildDrawer(BuildContext context) {
               color: Colors.white38,
               thickness: 1,
             ),
-            ListTile(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              leading: Padding(
-                padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                child: Icon(
-                  Icons.person,
-                  color: Colors.white38,
-                  size: 30,
-                ),
-              ),
-              title: Text(
-                'BUSINESS ACCOUNTS',
-                style: TextStyle(
-                  color: Colors.white38,
-                  fontWeight: FontWeight.w300,
-                  fontSize: 20,
-                ),
-              ),
-            ),
-            Divider(
-              color: Colors.white38,
-              thickness: 1,
-            ),
+
           ],
         ),
       )

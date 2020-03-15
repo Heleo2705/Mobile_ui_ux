@@ -59,13 +59,13 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
               'MOBILE',
               style: TextStyle(
                 color: Colors.grey[800],
-                fontSize: 20,
+                fontSize: 17,
               ),
             ),
           ),
-          SizedBox(
-            height: 10,
-          ),
+          //SizedBox(
+           // height: 00,
+          //),
 
           //This includes the contact number input part-
           //a dropDownList and a textfield
@@ -155,13 +155,13 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
                   onPressed: () {
                     Navigator.pushNamed(context, '/otp');
                   },
-                  padding: EdgeInsets.all(25),
+                  padding: EdgeInsets.all(15),
                   color: Colors.black,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),
                   child: Text(
                     'CONTINUE',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                    style: TextStyle(color: Colors.white, fontSize: 25),
                   ),
                 ),
               ),

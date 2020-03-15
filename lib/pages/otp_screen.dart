@@ -51,7 +51,7 @@ class _OtpScreenState extends State<OtpScreen> {
                 height: 20,
               ),
               Text(
-                'We have sent a 4 digit varification code on\n',
+                'We have sent a 4 digit verification code on\n',
                   style: TextStyle(
                     color: Colors.grey[700],
                     fontSize: 13

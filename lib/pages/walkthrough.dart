@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'package:mobileuiux/widgets/WalkthoughInput.dart';
 
 
@@ -22,8 +21,6 @@ class _WalkThroughState extends State<WalkThrough> {
             Center(
               child: Image(
                 fit: BoxFit.fill,
-                //height: 2080,
-
                 image: AssetImage('assets/images/Mainsection.png'),
               ),
             ),

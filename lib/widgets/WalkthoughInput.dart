@@ -158,7 +158,7 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
                   padding: EdgeInsets.all(15),
                   color: Colors.black,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(5)),
                   child: Text(
                     'CONTINUE',
                     style: TextStyle(color: Colors.white, fontSize: 15),

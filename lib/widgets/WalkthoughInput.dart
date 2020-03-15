@@ -161,7 +161,7 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
                       borderRadius: BorderRadius.circular(10)),
                   child: Text(
                     'CONTINUE',
-                    style: TextStyle(color: Colors.white, fontSize: 25),
+                    style: TextStyle(color: Colors.white, fontSize: 15),
                   ),
                 ),
               ),

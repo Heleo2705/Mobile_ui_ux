@@ -4,7 +4,7 @@ import 'package:mobileuiux/widgets/Drawer.dart';
 import 'package:mobileuiux/widgets/Upgrade_premium.dart';
 import 'package:mobileuiux/widgets/card1.dart';
 import 'package:provider/provider.dart';
-import '../classes/billdata.dart';
+import '../classes/repository/BillRepository.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,9 +13,16 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<BillsData>(
-      create: (context) => BillsData(),
+    BuildContext _context = context;
+    return ChangeNotifierProvider<BillRepository>(
+      create: (context) => BillRepository(),
       child: DefaultTabController(
         length: 2,
         child: Scaffold(
@@ -31,19 +38,19 @@ class _HomeState extends State<Home> {
           ),
           body: Container(
             color: Colors.grey[100],
-            child: Consumer<BillsData>(builder: (context, billsdata, child) {
-              billsdata.getBill();
-              return TabBarView(
-                children: <Widget>[
-                  Container(
-                      child: ListView.builder(
-                    itemCount: 10,
-                    itemBuilder: (context, index) {
-                      return Card1();
-                    },
-                  )),
-                  buildUpgrade(),
-                ],
+            child: Consumer<BillRepository>(builder: (context, b, child) {
+              b.getBill();
+              if (b.loading) {
+                return ListView.builder(
+                    itemCount: b.list.length,
+                    itemBuilder: (con, i) {
+                      return card1(
+                          context: _context, product_id: b.list[i].customerId);
+                    });
+              }
+              return Text(
+                "Loading",
+                style: TextStyle(color: Colors.blue),
               );
             }),
           ),

@@ -4,25 +4,25 @@ import 'dart:convert';
 import 'package:provider/provider.dart';
 
 class BillsData with ChangeNotifier {
-  List<BillsData> billData;
+  List billData;
 
-  int id;
-  int customerId;
+  String id;
+  String customerId;
   String customerName;
   String customerEmail;
   int customerGstn;
   int loyaltyNumber;
   String loyaltyDescription;
-  String customerAddress;
-  int billInfo;
-  int posInfo;
-  int item;
-  int subTotal;
-  int totalSaving;
-  int billDiscount;
-  int totalQuantity;
-  int paymentInfo;
-  int uniqueKey;
+  Map customerAddress;
+  Map billInfo;
+  Map posInfo;
+  List item;
+  String subTotal;
+  String totalSaving;
+  Map billDiscount;
+  String totalQuantity;
+  Map paymentInfo;
+  String uniqueKey;
 
   // c > created on
   int ccenturyOfEra;
@@ -49,7 +49,7 @@ class BillsData with ChangeNotifier {
   bool cuncachedZonefixed;
   String cuncachedZoneid;
   int cmillis;
-  int cafterNow;
+  bool cafterNow;
   bool cbeforeNow;
   bool cequalNow;
 
@@ -78,20 +78,20 @@ class BillsData with ChangeNotifier {
   bool luncachedZonefixed;
   String luncachedZoneid;
   int lmillis;
-  int lafterNow;
+  bool lafterNow;
   bool lbeforeNow;
   bool lequalNow;
 
-  int taxes;
-  int otherDiscounts;
-  String store;
-  int brandId;
-  String attributes;
+  List taxes;
+  List otherDiscounts;
+  Map store;
+  String brandId;
+  Map attributes;
   String feedback;
-  String clientInfo;
+  Map clientInfo;
   String prescription;
-  int checkoutOtp;
-  String offers;
+  String checkoutOtp;
+  List offers;
 
   BillsData({
     this.id,
@@ -180,28 +180,9 @@ class BillsData with ChangeNotifier {
     this.checkoutOtp,
     this.offers,
   });
-  Future<BillsData> getBill() async {
-    String url =
-        'http://localhost:9898/api/v1/bills/search/by-date-range?startDate=2020-04-02&endDate=2020-04-03';
-
-    final response = await http.get(url, headers: {
-      "Authorization": "Bearer YOUR-TOKEN-HERE",
-      "Content-Type": " application/json",
-      "Accept": "application/json"
-    });
-
-    if (response.statusCode == 200) {
-      var responseJSon = json.decode(response.body);
-      billData = responseJSon.map((p) => BillsData.fromJson(p)).toList();
-      print(billData);
-      notifyListeners();
-    } else {
-      throw Exception('Failed to Load Data');
-    }
-  }
 
   factory BillsData.fromJson(Map<String, dynamic> json) {
-    var billsData = BillsData(
+    BillsData billsData = BillsData(
         id: json['id'],
         customerId: json['customerInfo']['customerId'],
         customerName: json['customerInfo']['customerName'],

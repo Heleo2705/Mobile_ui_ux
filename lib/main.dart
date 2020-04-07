@@ -14,13 +14,6 @@ void main() {
   runApp(myApp());
 }
 
-void response() async {
-  Response response = await get(
-      'http://localhost:9898/api/v1/bills/search/by-date-range?startDate=2020-04-02&endDate=2020-04-03');
-  Map value = jsonDecode(response.body);
-  print(value);
-}
-
 Widget myApp() {
   return MaterialApp(
     debugShowCheckedModeBanner: false,

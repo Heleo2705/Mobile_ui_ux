@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileuiux/classes/Item.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BuildWalkthroughInput extends StatefulWidget {
   @override
@@ -64,7 +65,7 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
             ),
           ),
           //SizedBox(
-           // height: 00,
+          // height: 00,
           //),
 
           //This includes the contact number input part-
@@ -123,21 +124,19 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
                     controller: controller,
                     onChanged: (text) {
                       controller.text = text;
-                      controller.selection = TextSelection.collapsed(offset: controller.text.length);
+                      controller.selection = TextSelection.collapsed(
+                          offset: controller.text.length);
                     },
                     style: TextStyle(color: Colors.grey[800], fontSize: 20),
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.fromLTRB(0, 18, 10, 0),
-                      hintText: '9055113333',
-                      hintStyle:TextStyle(color: Colors.grey[500], fontSize: 20),
-                      border: UnderlineInputBorder(
-                          borderSide: BorderSide(
-                              color: Colors.black,
-                              width: 2
-                          )
-                      )
-                    ),
+                        contentPadding: EdgeInsets.fromLTRB(0, 18, 10, 0),
+                        hintText: '9055113333',
+                        hintStyle:
+                            TextStyle(color: Colors.grey[500], fontSize: 20),
+                        border: UnderlineInputBorder(
+                            borderSide:
+                                BorderSide(color: Colors.black, width: 2))),
                   ),
                 )
               ],
@@ -153,7 +152,8 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
               Expanded(
                 child: FlatButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/otp');
+                    Navigator.pushNamed(context, '/otp',
+                        arguments: {'number': controller.text});
                   },
                   padding: EdgeInsets.all(15),
                   color: Colors.black,

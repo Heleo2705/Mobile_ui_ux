@@ -45,7 +45,14 @@ class _HomeState extends State<Home> {
                     itemCount: b.list.length,
                     itemBuilder: (con, i) {
                       return card1(
-                          context: _context, product_id: b.list[i].customerId);
+                          context: _context,
+                          productId: b.list[i].customerId,
+                          purchaseDate: b.list[i].billInfo['purchaseDate'],
+                          displayCity: b.list[i].store['displayAddress']['city'],
+                          displayName: b.list[i].store['displayName'],
+                          logo: b.list[i].brand['logo'],
+                          subTotal: b.list[i].subTotal,
+                      );
                     });
               }
               return Text(

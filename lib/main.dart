@@ -21,7 +21,7 @@ Widget myApp() {
       brightness: Brightness.dark,
       primaryColor: Colors.black,
       accentColor: Colors.black,
-      fontFamily: 'Roboto',
+      fontFamily: 'Montserrat',
     ),
     initialRoute: '/',
     routes: {

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
-Widget card1({@required BuildContext context, String product_id, String date}) {
-  if (product_id == null) product_id = "Cant find";
-  if (date == null) date = "12345";
+Widget card1({@required BuildContext context, String productId, String purchaseDate, String displayName, String logo, String subTotal, String displayCity}) {
+  if (productId == null) productId = "Cant find";
+  if (purchaseDate == null) purchaseDate = "Can't find";
+  if (displayName == null) displayName = "Can't find";
+  if (logo == null) logo = "https://logosvector.net/wp-content/themes/iLoveLogos/img/not-available.jpg";
+  if (subTotal == null) subTotal = "0";
+  if(displayCity == null) displayCity = "Can't find";
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Container(
@@ -28,14 +32,14 @@ Widget card1({@required BuildContext context, String product_id, String date}) {
                         width: 15,
                       ),
                       Text(
-                        product_id,
+                        productId,
                         style: TextStyle(color: Colors.black54, fontSize: 13),
                       ),
                       SizedBox(
                         width: 20,
                       ),
                       Text(
-                        date,
+                        purchaseDate[6]+purchaseDate[7]+" - "+purchaseDate[4]+purchaseDate[5]+" - "+purchaseDate[0]+purchaseDate[1]+purchaseDate[2]+purchaseDate[3],
                         style: TextStyle(
                           color: Colors.black54,
                           fontSize: 13,
@@ -75,7 +79,7 @@ Widget card1({@required BuildContext context, String product_id, String date}) {
                 Expanded(
                   flex: 2,
                   child: Image(
-                    image: AssetImage('assets/images/mcd.png'),
+                    image: NetworkImage(logo),
                     height: 90,
                     width: 90,
                   ),
@@ -89,7 +93,7 @@ Widget card1({@required BuildContext context, String product_id, String date}) {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Text(
-                          'McDonalds',
+                          displayName,
                           style:
                               TextStyle(color: Colors.grey[900], fontSize: 18),
                         ),
@@ -105,7 +109,7 @@ Widget card1({@required BuildContext context, String product_id, String date}) {
                               size: 12,
                             ),
                             Text(
-                              'Phoenix Marketcity',
+                              displayCity,
                               style: TextStyle(
                                 color: Colors.black54,
                                 fontSize: 12,
@@ -129,7 +133,7 @@ Widget card1({@required BuildContext context, String product_id, String date}) {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              '@ 20,000',
+                              subTotal,
                               style: TextStyle(
                                   fontSize: 16,
                                   color: Colors.black,

@@ -85,6 +85,7 @@ class BillsData with ChangeNotifier {
   List taxes;
   List otherDiscounts;
   Map store;
+  Map brand;
   String brandId;
   Map attributes;
   String feedback;
@@ -172,6 +173,7 @@ class BillsData with ChangeNotifier {
     this.taxes,
     this.otherDiscounts,
     this.store,
+    this.brand,
     this.brandId,
     this.attributes,
     this.feedback,
@@ -263,6 +265,7 @@ class BillsData with ChangeNotifier {
         taxes: json['taxes'],
         otherDiscounts: json['otherDiscounts'],
         store: json['store'],
+        brand: json['brand'],
         brandId: json['brandId'],
         attributes: json['attributes'],
         feedback: json['feedback'],

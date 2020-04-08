@@ -28,7 +28,7 @@ class BillRepository extends ChangeNotifier {
       loading = true;
       try {
         responseJson = jsonDecode(response.body);
-        print(responseJson);
+        // print(responseJson);
         List<BillsData> _l = [];
         for (int i = 0; i < responseJson.length; i++) {
           _l.add(BillsData.fromJson(responseJson[i]));

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobileuiux/classes/Item.dart';
+import 'package:mobileuiux/classes/repository/registerRepository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class BuildWalkthroughInput extends StatefulWidget {
@@ -152,8 +153,12 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
               Expanded(
                 child: FlatButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, '/otp',
-                        arguments: {'number': controller.text});
+                    registerUser r = registerUser(
+                        countryCode: dropdown.name, number: controller.text);
+                    Navigator.pushNamed(context, '/otp', arguments: {
+                      'number': controller.text,
+                      'countryCode': dropdown.name
+                    });
                   },
                   padding: EdgeInsets.all(15),
                   color: Colors.black,

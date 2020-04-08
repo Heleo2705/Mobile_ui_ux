@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobileuiux/classes/repository/verificationRepository.dart';
 import 'package:pin_entry_text_field/pin_entry_text_field.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -19,12 +20,15 @@ class _OtpScreenState extends State<OtpScreen> {
     Map _data = ModalRoute.of(context).settings.arguments;
 
     String number = _data['number'];
+    String countryCode = _data['countryCode'];
     String _pin = "";
 
     TextEditingController _t = TextEditingController();
     FocusNode n1 = FocusNode();
     FocusNode n2 = FocusNode();
     FocusNode n3 = FocusNode();
+    FocusNode n4 = FocusNode();
+    FocusNode n5 = FocusNode();
 
     return Form(
       child: Scaffold(
@@ -87,11 +91,11 @@ class _OtpScreenState extends State<OtpScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
+                    // SizedBox(
+                    //   width: 50,
+                    // ),
                     SizedBox(
-                      width: 50,
-                    ),
-                    SizedBox(
-                      width: 50,
+                      width: MediaQuery.of(context).size.width/7,
                       child: TextField(
                         style: TextStyle(
                           fontSize: 30,
@@ -112,7 +116,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: 50,
+                      width: MediaQuery.of(context).size.width/7,
                       child: TextField(
                         style: TextStyle(
                           fontSize: 30,
@@ -134,7 +138,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: 50,
+                      width: MediaQuery.of(context).size.width/7,
                       child: TextField(
                         style: TextStyle(
                           fontSize: 30,
@@ -156,7 +160,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: 50,
+                      width:MediaQuery.of(context).size.width/7,
                       child: TextField(
                         style: TextStyle(
                           fontSize: 30,
@@ -167,7 +171,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         controller: TextEditingController(),
                         onChanged: (s) {
                           _pin = _pin + s;
-                          FocusScope.of(context).requestFocus(n1);
+                          FocusScope.of(context).requestFocus(n4);
                         },
                         maxLength: 1,
                         keyboardType: TextInputType.number,
@@ -178,8 +182,52 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: 50,
+                      width: MediaQuery.of(context).size.width/7,
+                      child: TextField(
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.grey[800],
+                          height: 2,
+                        ),
+                        focusNode: n4,
+                        controller: TextEditingController(),
+                        onChanged: (s) {
+                          _pin = _pin + s;
+                          FocusScope.of(context).requestFocus(n5);
+                        },
+                        maxLength: 1,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey[800], width: 2))),
+                      ),
                     ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width/7,
+                      child: TextField(
+                        style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.grey[800],
+                          height: 2,
+                        ),
+                        focusNode: n5,
+                        controller: TextEditingController(),
+                        onChanged: (s) {
+                          _pin = _pin + s;
+                          // FocusScope.of(context).requestFocus(n1);
+                        },
+                        maxLength: 1,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: Colors.grey[800], width: 2))),
+                      ),
+                    ),
+                    // SizedBox(
+                    //   width: 50,
+                    // ),
                   ],
                 ),
 
@@ -195,6 +243,7 @@ class _OtpScreenState extends State<OtpScreen> {
                     child: OutlineButton(
                       onPressed: () {
                         print(_pin);
+                        verifyUser v=verifyUser(countryCode: countryCode,number: number,otp: _pin);
                         Navigator.pushReplacementNamed(context, '/home');
                       },
                       textColor: Colors.black,

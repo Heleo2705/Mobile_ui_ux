@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobileuiux/classes/billdata.dart';
 
-Widget card1({@required BuildContext context, String productId, String purchaseDate, String displayName, String logo, String subTotal, String displayCity}) {
+Widget card1({@required BuildContext context, String productId,BillsData billData, String purchaseDate, String displayName, String logo, String subTotal, String displayCity}) {
   if (productId == null) productId = "Cant find";
   if (purchaseDate == null) purchaseDate = "Can't find";
   if (displayName == null) displayName = "Can't find";
@@ -81,6 +82,7 @@ Widget card1({@required BuildContext context, String productId, String purchaseD
               children: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
                   children: <Widget>[
                     Image(
                       image: NetworkImage(logo),

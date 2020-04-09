@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import '../billdata.dart';
 import '../userToken.dart';
 
@@ -13,13 +14,20 @@ class BillRepository extends ChangeNotifier {
     loading = false;
     this.getBill();
   }
+  Future<String> _getToken() async {
+    SharedPreferences _sh = await SharedPreferences.getInstance();
+    String _s = _sh.getString("accessToken");
+    return _s;
+  }
+
   Future<void> getBill() async {
+    String _accessToken = await this._getToken();
+    print(_accessToken);
     String url =
         'https://test.knvl.me/api/v1/bills/search/by-date-range?startDate=2020-04-01&endDate=2020-04-08';
 
     final response = await http.get(url, headers: {
-      "Authorization":
-          "Bearer eyJzdWIiOiI3MDExMDcwNDA0IiwiYXV0aCI6IlJPTEVfVVNFUiIsInN0b3JlSWQiOiJOTy5TVE9SRSIsImJyYW5kSWQiOiJOTy5CUkFORCIsImV4cCI6MTU4NjI2NjA1Mn0.ezSB3m-qzB9PsfXyNUvzVDiMskBxljwoz8XmR1lkFjYqT8kaa1z1p4mxylUqmo5kezzXJbX6FOZ-Zll7nOOtEg",
+      "Authorization": "Bearer ${_accessToken}",
       "Content-Type": " application/json",
       "Accept": "application/json"
     });

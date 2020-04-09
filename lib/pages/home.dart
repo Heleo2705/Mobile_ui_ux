@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
                           purchaseDate: b.list[i].billInfo['purchaseDate'],
                           displayCity: b.list[i].store['displayAddress']['city'],
                           displayName: b.list[i].store['displayName'],
-                          logo: b.list[i].brand['logo'],
+                          // logo: b.list[i].brand['logo'],
                           subTotal: b.list[i].subTotal,
                       );
                     });

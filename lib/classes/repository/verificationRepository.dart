@@ -40,16 +40,11 @@ class verifyUser {
           refreshToken: _responseJson['refresh_token']);
 
       print(u.accessToken);
-      this.checkToken();
+    
     }
 
     return _load;
   }
 
-  void checkToken() async {
-    String _accessToken = "null";
-    String _refreshToken = "null";
-   userToken u= await userToken.get(_accessToken, _refreshToken);
-    print(_accessToken);
-  }
+
 }

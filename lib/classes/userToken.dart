@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class userToken {
+class userToken extends ChangeNotifier {
   String accessToken;
   String refreshToken;
   userToken({this.accessToken, this.refreshToken});
@@ -9,19 +9,15 @@ class userToken {
     this.storeToPref();
   }
 
-  userToken.get(String t, String v) {
-    this.getfromPref(t, v);
-  }
+ 
 
   storeToPref() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     pref.setString("accessToken", accessToken);
     pref.setString("refreshToken", refreshToken);
+    notifyListeners();
   }
 
-  getfromPref(String t, String v) async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    t = pref.getString("accessToken");
-    v = pref.getString("refreshToken");
-  }
+  
+
 }

@@ -1,13 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Card2 extends StatefulWidget {
-  @override
-  _CardState createState() => _CardState();
-}
-
-class _CardState extends State<Card2> {
-  @override
+Widget card2(){
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -114,5 +107,5 @@ class _CardState extends State<Card2> {
 
       ),
     );
-  }
+}
 }

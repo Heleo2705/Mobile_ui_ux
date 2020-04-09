@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:mobileuiux/classes/billdata.dart';
 
-Widget card1({@required BuildContext context, String productId, String purchaseDate, String displayName, String logo, String subTotal, String displayCity}) {
+Widget card1(
+    {@required BuildContext context,
+    BillsData billData,
+    String productId,
+    String purchaseDate,
+    String displayName,
+    String logo,
+    String subTotal,
+    String displayCity}) {
   if (productId == null) productId = "Cant find";
   if (purchaseDate == null) purchaseDate = "Can't find";
   if (displayName == null) displayName = "Can't find";
-  if (logo == null) logo = "https://logosvector.net/wp-content/themes/iLoveLogos/img/not-available.jpg";
+  if (logo == null)
+    logo =
+        "https://logosvector.net/wp-content/themes/iLoveLogos/img/not-available.jpg";
   if (subTotal == null) subTotal = "0";
-  if(displayCity == null) displayCity = "Can't find";
+  if (displayCity == null) displayCity = "Can't find";
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Container(
@@ -39,7 +50,16 @@ Widget card1({@required BuildContext context, String productId, String purchaseD
                         width: 20,
                       ),
                       Text(
-                        purchaseDate[6]+purchaseDate[7]+" - "+purchaseDate[4]+purchaseDate[5]+" - "+purchaseDate[0]+purchaseDate[1]+purchaseDate[2]+purchaseDate[3],
+                        purchaseDate[6] +
+                            purchaseDate[7] +
+                            " - " +
+                            purchaseDate[4] +
+                            purchaseDate[5] +
+                            " - " +
+                            purchaseDate[0] +
+                            purchaseDate[1] +
+                            purchaseDate[2] +
+                            purchaseDate[3],
                         style: TextStyle(
                           color: Colors.black54,
                           fontSize: 13,

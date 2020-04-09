@@ -46,6 +46,7 @@ class _HomeState extends State<Home> {
                     itemBuilder: (con, i) {
                       return card1(
                           context: _context,
+                          billData: b.list[i],
                           productId: b.list[i].customerId,
                           purchaseDate: b.list[i].billInfo['purchaseDate'],
                           displayCity: b.list[i].store['displayAddress']['city'],

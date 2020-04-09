@@ -269,7 +269,9 @@ class _OtpScreenState extends State<OtpScreen> {
                   style: TextStyle(color: Colors.grey[700], fontSize: 13),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    verifyUser v=verifyUser(countryCode: countryCode,number: number,otp: _pin);
+                  },
                   child: Text(
                     'Resend Code \n',
                     style: TextStyle(

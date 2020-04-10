@@ -15,7 +15,6 @@ class verifyUser {
   verifyUser(
       {@required this.number, @required this.countryCode, @required this.otp}) {
     this.authApicall();
-   
   }
   authApicall() async {
     load = await callforAuth();
@@ -39,12 +38,9 @@ class verifyUser {
           accessToken: _responseJson["access_token"],
           refreshToken: _responseJson['refresh_token']);
 
-      // print("Here ${u.accessToken}");
-    
+      print("Here ${u.accessToken}");
     }
 
     return _load;
   }
-
-
 }

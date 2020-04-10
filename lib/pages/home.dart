@@ -16,6 +16,8 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    BillRepository b=BillRepository();
+          b.getBill();
   }
 
   @override
@@ -39,7 +41,7 @@ class _HomeState extends State<Home> {
           body: Container(
             color: Colors.grey[100],
             child: Consumer<BillRepository>(builder: (context, b, child) {
-              b.getBill();
+        
               if (b.loading) {
                 
                 return ListView.builder(
@@ -52,7 +54,7 @@ class _HomeState extends State<Home> {
                           purchaseDate: b.list[i].billInfo['purchaseDate'],
                           displayCity: b.list[i].store['displayAddress']['city'],
                           displayName: b.list[i].store['displayName'],
-                          logo: b.list[i].store['brand']['logo'],
+                          // logo: b.list[i].store['brand']['logo'], //See here is stored the value of logo
                           subTotal: b.list[i].subTotal,
                       );
                     });

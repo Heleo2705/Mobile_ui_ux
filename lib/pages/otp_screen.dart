@@ -23,7 +23,13 @@ class _OtpScreenState extends State<OtpScreen> {
     String countryCode = _data['countryCode'];
     String _pin = "";
 
-    TextEditingController _t = TextEditingController();
+    TextEditingController _t1 = TextEditingController();
+    TextEditingController _t2 = TextEditingController();
+    TextEditingController _t3 = TextEditingController();
+    TextEditingController _t4 = TextEditingController();
+    TextEditingController _t5 = TextEditingController();
+    TextEditingController _t6 = TextEditingController();
+
     FocusNode n1 = FocusNode();
     FocusNode n2 = FocusNode();
     FocusNode n3 = FocusNode();
@@ -95,16 +101,16 @@ class _OtpScreenState extends State<OtpScreen> {
                     //   width: 50,
                     // ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width/7,
+                      width: MediaQuery.of(context).size.width / 7,
                       child: TextField(
                         style: TextStyle(
                           fontSize: 30,
                           color: Colors.grey[800],
                           height: 2,
                         ),
-                        controller: TextEditingController(),
+                        controller: _t1,
                         onChanged: (s) {
-                          _pin = _pin + s;
+                          // _pin = _pin + _t1.text;
                           FocusScope.of(context).requestFocus(n1);
                         },
                         maxLength: 1,
@@ -116,7 +122,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width/7,
+                      width: MediaQuery.of(context).size.width / 7,
                       child: TextField(
                         style: TextStyle(
                           fontSize: 30,
@@ -124,9 +130,9 @@ class _OtpScreenState extends State<OtpScreen> {
                           height: 2,
                         ),
                         focusNode: n1,
-                        controller: TextEditingController(),
+                        controller: _t2,
                         onChanged: (s) {
-                          _pin = _pin + s;
+                          // _pin = _pin + _t2.text;
                           FocusScope.of(context).requestFocus(n2);
                         },
                         maxLength: 1,
@@ -138,7 +144,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width/7,
+                      width: MediaQuery.of(context).size.width / 7,
                       child: TextField(
                         style: TextStyle(
                           fontSize: 30,
@@ -146,9 +152,9 @@ class _OtpScreenState extends State<OtpScreen> {
                           height: 2,
                         ),
                         focusNode: n2,
-                        controller: TextEditingController(),
+                        controller: _t3,
                         onChanged: (s) {
-                          _pin = _pin + s;
+                          // _pin = _pin + _t3.text;
                           FocusScope.of(context).requestFocus(n3);
                         },
                         maxLength: 1,
@@ -160,7 +166,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     SizedBox(
-                      width:MediaQuery.of(context).size.width/7,
+                      width: MediaQuery.of(context).size.width / 7,
                       child: TextField(
                         style: TextStyle(
                           fontSize: 30,
@@ -168,9 +174,9 @@ class _OtpScreenState extends State<OtpScreen> {
                           height: 2,
                         ),
                         focusNode: n3,
-                        controller: TextEditingController(),
+                        controller: _t4,
                         onChanged: (s) {
-                          _pin = _pin + s;
+                          // _pin = _pin + _t4.text;
                           FocusScope.of(context).requestFocus(n4);
                         },
                         maxLength: 1,
@@ -182,7 +188,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width/7,
+                      width: MediaQuery.of(context).size.width / 7,
                       child: TextField(
                         style: TextStyle(
                           fontSize: 30,
@@ -190,9 +196,9 @@ class _OtpScreenState extends State<OtpScreen> {
                           height: 2,
                         ),
                         focusNode: n4,
-                        controller: TextEditingController(),
+                        controller: _t5,
                         onChanged: (s) {
-                          _pin = _pin + s;
+                          // _pin = _pin + _t5.text;
                           FocusScope.of(context).requestFocus(n5);
                         },
                         maxLength: 1,
@@ -204,7 +210,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width/7,
+                      width: MediaQuery.of(context).size.width / 7,
                       child: TextField(
                         style: TextStyle(
                           fontSize: 30,
@@ -212,9 +218,9 @@ class _OtpScreenState extends State<OtpScreen> {
                           height: 2,
                         ),
                         focusNode: n5,
-                        controller: TextEditingController(),
+                        controller: _t6,
                         onChanged: (s) {
-                          _pin = _pin + s;
+                          // _pin = _pin + _t6.text;
                           // FocusScope.of(context).requestFocus(n1);
                         },
                         maxLength: 1,
@@ -242,8 +248,12 @@ class _OtpScreenState extends State<OtpScreen> {
                     width: 350,
                     child: OutlineButton(
                       onPressed: () {
+                        _pin=_pin+_t1.text+_t2.text+_t3.text+_t4.text+_t5.text+_t6.text;
                         print(_pin);
-                        verifyUser v=verifyUser(countryCode: countryCode,number: number,otp: _pin);
+                        verifyUser v = verifyUser(
+                            countryCode: countryCode,
+                            number: number,
+                            otp: _pin);
                         Navigator.pushReplacementNamed(context, '/home');
                       },
                       textColor: Colors.black,
@@ -270,7 +280,15 @@ class _OtpScreenState extends State<OtpScreen> {
                 ),
                 GestureDetector(
                   onTap: () {
-                    verifyUser v=verifyUser(countryCode: countryCode,number: number,otp: _pin);
+                    _t1.clear();
+                    _t2.clear();
+                    _t3.clear();
+                    _t4.clear();
+                    _t5.clear();
+                    _t6.clear();
+                    _pin='';
+                    verifyUser v = verifyUser(
+                        countryCode: countryCode, number: number, otp: _pin);
                   },
                   child: Text(
                     'Resend Code \n',

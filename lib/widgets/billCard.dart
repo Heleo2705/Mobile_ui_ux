@@ -1,19 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mobileuiux/widgets/DottedBorder.dart';
-import 'package:mobileuiux/widgets/BillSums.dart';
-import 'package:mobileuiux/widgets/Bill_Item.dart';
 
+import 'BillSums.dart';
+import 'Bill_Item.dart';
+import 'DottedBorder.dart';
 
-class BillCard extends StatefulWidget {
-  @override
-  _BillCardState createState() => _BillCardState();
-}
-
-class _BillCardState extends State<BillCard> {
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
+Widget BillCard(){
+  return Padding(
       padding: const EdgeInsets.fromLTRB(0,0,0,0),
       child: Container(
         color: Colors.white,
@@ -81,9 +74,4 @@ class _BillCardState extends State<BillCard> {
         ),
       ),
     );
-  }
-
-
-
-
 }

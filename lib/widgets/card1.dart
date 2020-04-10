@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:mobileuiux/classes/billdata.dart';
 
-Widget card1({@required BuildContext context, String productId,BillsData billData, String purchaseDate, String displayName, String logo, String subTotal, String displayCity}) {
+Widget card1(
+    {@required BuildContext context,
+    String productId,
+    BillsData billData,
+    String purchaseDate,
+    String displayName,
+    String logo,
+    String subTotal,
+    String displayCity}) {
   if (productId == null) productId = "Cant find";
   if (purchaseDate == null) purchaseDate = "Can't find";
   if (displayName == null) displayName = "Can't find";
-  if (logo == null) logo = "https://logosvector.net/wp-content/themes/iLoveLogos/img/not-available.jpg";
+  if (logo == null)
+    logo =
+        "https://logosvector.net/wp-content/themes/iLoveLogos/img/not-available.jpg";
   if (subTotal == null) subTotal = "0";
-  if(displayCity == null) displayCity = "Can't find";
+  if (displayCity == null) displayCity = "Can't find";
 
   var maxHeight = 150.0;
   var smallFont = 12.0;
@@ -31,29 +41,38 @@ Widget card1({@required BuildContext context, String productId,BillsData billDat
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
                 Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      SizedBox(
-                        width: 15,
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    SizedBox(
+                      width: 15,
+                    ),
+                    Text(
+                      productId,
+                      style:
+                          TextStyle(color: Colors.black54, fontSize: smallFont),
+                    ),
+                    SizedBox(
+                      width: 20,
+                    ),
+                    Text(
+                      purchaseDate[6] +
+                          purchaseDate[7] +
+                          " - " +
+                          purchaseDate[4] +
+                          purchaseDate[5] +
+                          " - " +
+                          purchaseDate[0] +
+                          purchaseDate[1] +
+                          purchaseDate[2] +
+                          purchaseDate[3],
+                      style: TextStyle(
+                        color: Colors.black54,
+                        fontSize: smallFont,
                       ),
-                      Text(
-                        productId,
-                        style: TextStyle(color: Colors.black54, fontSize: smallFont),
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Text(
-                        purchaseDate[6]+purchaseDate[7]+" - "+purchaseDate[4]+purchaseDate[5]+" - "+purchaseDate[0]+purchaseDate[1]+purchaseDate[2]+purchaseDate[3],
-                        style: TextStyle(
-                          color: Colors.black54,
-                          fontSize: smallFont,
-                        ),
-                      )
-                    ],
-                  )
-                ),
+                    )
+                  ],
+                )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
@@ -98,8 +117,8 @@ Widget card1({@required BuildContext context, String productId,BillsData billDat
                         children: <Widget>[
                           Text(
                             displayName,
-                            style:
-                            TextStyle(color: Colors.grey[900], fontSize: titleSize),
+                            style: TextStyle(
+                                color: Colors.grey[900], fontSize: titleSize),
                           ),
                           SizedBox(
                             height: 10,
@@ -126,7 +145,6 @@ Widget card1({@required BuildContext context, String productId,BillsData billDat
                     ),
                   ],
                 ),
-
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisSize: MainAxisSize.min,
@@ -154,7 +172,8 @@ Widget card1({@required BuildContext context, String productId,BillsData billDat
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.pushNamed(context, '/billPage');
+                        Navigator.pushNamed(context, '/billPage',
+                            arguments: {'bill': billData});
                       },
                       child: Container(
                         child: Row(

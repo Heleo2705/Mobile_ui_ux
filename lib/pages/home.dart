@@ -41,6 +41,7 @@ class _HomeState extends State<Home> {
             child: Consumer<BillRepository>(builder: (context, b, child) {
               b.getBill();
               if (b.loading) {
+               
                 return ListView.builder(
                     itemCount: b.list.length,
                     itemBuilder: (con, i) {

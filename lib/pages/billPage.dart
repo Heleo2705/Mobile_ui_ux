@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mobileuiux/classes/billdata.dart';
 import 'package:mobileuiux/widgets/billCard.dart';
 import 'package:mobileuiux/widgets/card2.dart';
-
 
 class BillPage extends StatefulWidget {
   @override
@@ -11,15 +11,13 @@ class BillPage extends StatefulWidget {
 class _BillPageState extends State<BillPage> {
   @override
   Widget build(BuildContext context) {
+    Map<String, BillsData> _data = ModalRoute.of(context).settings.arguments;
+    print(_data);
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: Colors.black,
-          size: 30
-        ),
-
+        iconTheme: IconThemeData(color: Colors.black, size: 30),
       ),
       body: Container(
         child: Column(
@@ -30,7 +28,7 @@ class _BillPageState extends State<BillPage> {
               children: <Widget>[
                 Expanded(
                   child: FlatButton(
-                    onPressed: (){},
+                    onPressed: () {},
                     color: Colors.black,
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),

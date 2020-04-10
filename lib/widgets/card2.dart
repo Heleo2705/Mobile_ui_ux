@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobileuiux/classes/billdata.dart';
 
-Widget card2(){
-  Widget build(BuildContext context) {
-    return Padding(
+Widget Card2(){
+  return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
         constraints: BoxConstraints(
@@ -107,5 +107,4 @@ Widget card2(){
 
       ),
     );
-}
 }

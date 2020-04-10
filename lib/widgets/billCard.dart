@@ -1,11 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobileuiux/classes/billdata.dart';
 
 import 'BillSums.dart';
 import 'Bill_Item.dart';
 import 'DottedBorder.dart';
 
-Widget BillCard(){
+Widget BillCard(BillsData bill){
   return Padding(
       padding: const EdgeInsets.fromLTRB(0,0,0,0),
       child: Container(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobileuiux/classes/billdata.dart';
 
-Widget Card2(){
+Widget Card2(BillsData bill){
   return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(

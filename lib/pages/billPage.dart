@@ -12,7 +12,8 @@ class _BillPageState extends State<BillPage> {
   @override
   Widget build(BuildContext context) {
     Map<String, BillsData> _data = ModalRoute.of(context).settings.arguments;
-    print(_data);
+
+    //_data use karke parameters define karle
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
@@ -22,8 +23,8 @@ class _BillPageState extends State<BillPage> {
       body: Container(
         child: Column(
           children: <Widget>[
-            Card2(),
-            Expanded(child: BillCard()),
+            Card2(_data['bill']),
+            Expanded(child: BillCard(_data['bill'])),
             Row(
               children: <Widget>[
                 Expanded(

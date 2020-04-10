@@ -41,7 +41,7 @@ class _HomeState extends State<Home> {
             child: Consumer<BillRepository>(builder: (context, b, child) {
               b.getBill();
               if (b.loading) {
-               
+                
                 return ListView.builder(
                     itemCount: b.list.length,
                     itemBuilder: (con, i) {
@@ -52,7 +52,7 @@ class _HomeState extends State<Home> {
                           purchaseDate: b.list[i].billInfo['purchaseDate'],
                           displayCity: b.list[i].store['displayAddress']['city'],
                           displayName: b.list[i].store['displayName'],
-                          // logo: b.list[i].brand['logo'],
+                          logo: b.list[i].store['brand']['logo'],
                           subTotal: b.list[i].subTotal,
                       );
                     });

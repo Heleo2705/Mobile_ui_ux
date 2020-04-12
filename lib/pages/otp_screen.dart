@@ -1,7 +1,8 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileuiux/classes/repository/BillRepository.dart';
 import 'package:mobileuiux/classes/repository/verificationRepository.dart';
-import 'package:pin_entry_text_field/pin_entry_text_field.dart';
+
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -101,11 +102,8 @@ class _OtpScreenState extends State<OtpScreen> {
 
                   //TextInput field for otp
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      // SizedBox(
-                      //   width: 50,
-                      // ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 7,
                         child: TextField(
@@ -237,9 +235,6 @@ class _OtpScreenState extends State<OtpScreen> {
                                       color: Colors.grey[800], width: 2))),
                         ),
                       ),
-                      // SizedBox(
-                      //   width: 50,
-                      // ),
                     ],
                   ),
 
@@ -263,12 +258,12 @@ class _OtpScreenState extends State<OtpScreen> {
                                 _t5.text +
                                 _t6.text;
                             print(_pin);
-                           
+
                             verifyUser v = verifyUser.start(
                                 countryCode: countryCode,
                                 number: number,
                                 otp: _pin);
-                                await v.authApicall();
+                            await v.authApicall();
 
                             _isClicked = !_isClicked;
                             // if (!v.loading)
@@ -330,4 +325,3 @@ class _OtpScreenState extends State<OtpScreen> {
     );
   }
 }
-

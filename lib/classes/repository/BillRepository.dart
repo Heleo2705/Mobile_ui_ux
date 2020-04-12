@@ -22,7 +22,8 @@ class BillRepository extends ChangeNotifier {
 
   Future<void> getBill() async {
     String _accessToken = await this._getToken();
-    print(_accessToken);
+    
+    // print(_accessToken);
     String url =
         'https://test.knvl.me/api/v1/bills/search/by-date-range?startDate=2020-04-01&endDate=2020-04-08';
 

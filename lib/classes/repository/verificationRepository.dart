@@ -5,42 +5,42 @@ import 'package:mobileuiux/classes/userToken.dart';
 import '../apiurls.dart';
 import 'package:http/http.dart' as http;
 
-class verifyUser {
+class verifyUser extends ChangeNotifier {
   String number;
   String countryCode;
   String otp;
-  bool load;
+  bool loading = true;
   APIURLs a;
 
-  verifyUser(
+verifyUser();
+
+  verifyUser.start(
       {@required this.number, @required this.countryCode, @required this.otp}) {
-    this.authApicall();
+    // this.authApicall();
   }
   authApicall() async {
-    load = await callforAuth();
+    await callforAuth(this.loading);
   }
 
-  callforAuth() async {
-    bool _load = false;
+  callforAuth(bool loading) async {
+    loading=true;
     final _body = jsonEncode(
         {"login": "$number", "countryCode": "$countryCode", "otp": "$otp"});
-
+    notifyListeners();
     http.Response response = await http.post(
         "https://test.knvl.me/api/app/authenticate",
         body: _body,
         headers: {"Content-Type": "application/json"});
 
     if (response.statusCode == 200) {
-      _load = true;
       Map _responseJson = jsonDecode(response.body);
 
       userToken u = await userToken.store(
           accessToken: _responseJson["access_token"],
           refreshToken: _responseJson['refresh_token']);
-
-      print("Here ${u.accessToken}");
+      loading=false;
+      notifyListeners();
+      print("Here  is verification ${u.accessToken}");
     }
-
-    return _load;
   }
 }

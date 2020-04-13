@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Container buildBillSum(String metric, String value) {
+Container buildBillSum({String metric, String value}) {
   return Container(
     padding: EdgeInsets.all(15),
     child: Row(

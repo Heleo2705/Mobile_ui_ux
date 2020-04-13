@@ -132,7 +132,7 @@ class _BuildWalkthroughInputState extends State<BuildWalkthroughInput> {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                         contentPadding: EdgeInsets.fromLTRB(0, 18, 10, 0),
-                        hintText: '9055113333',
+                        hintText: 'your mobile number',
                         hintStyle:
                             TextStyle(color: Colors.grey[500], fontSize: 20),
                         border: UnderlineInputBorder(

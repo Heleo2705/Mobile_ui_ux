@@ -1,14 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileuiux/classes/billdata.dart';
-
+import 'package:intl/intl.dart';
 import 'BillSums.dart';
 import 'Bill_Item.dart';
 import 'DottedBorder.dart';
 
-Widget BillCard(BillsData bill){
+Widget billCard(BillsData bill){
+
+  var orderId = bill.billInfo['billNumber'];
+  var dateAndTime = DateTime.parse(bill.billInfo['purchaseDate']+' '+bill.billInfo['purchaseTime']);
+  var displayDateTime = DateFormat("d MMM, ''yy, h:mm:ss a").format(dateAndTime);
+  var itemsCount = bill.item.length;
+  var items = bill.item;
+  var subTotal = bill.subTotal;
+  String discount = bill.billDiscount['amount'];
+  var total = bill.subTotal;
+
   return Padding(
-      padding: const EdgeInsets.fromLTRB(0,0,0,0),
+      padding: const EdgeInsets.all(0),
       child: Container(
         color: Colors.white,
         padding: EdgeInsets.all(15),
@@ -27,7 +37,7 @@ Widget BillCard(BillsData bill){
                   ),
                 ),
                 Text(
-                  '#order_id ',
+                  orderId+' ',
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.black,
@@ -48,7 +58,7 @@ Widget BillCard(BillsData bill){
                   ),
                 ),
                 Text(
-                  '_date_and_time_',
+                  displayDateTime,      ///Ho SAKTA HAI YAHA PE PROBLEM HO//////////////////////////////////
                   style: TextStyle(
                       color: Colors.grey[800],
                       fontSize: 12
@@ -58,18 +68,35 @@ Widget BillCard(BillsData bill){
             ),
             SizedBox(height: 20,),
             buildDottedBorder(),
-            buildBillItem('ITEM NAME','QTY','PRICE','AMOUNT'),
+            buildBillItem(name:'ITEM NAME',qty:'QTY',price:'PRICE',amount:'AMOUNT'),
             buildDottedBorder(),
-            buildBillItem('Name1','1','12,999','13,999'),
-            buildBillItem('Name2','2','12,999','13,999'),
-            buildBillItem('Name3','3','12,999','13,999'),
-            buildBillItem('Name4','4','12,999','13,999'),
+            ListView.builder(
+              padding: EdgeInsets.all(0),
+              itemCount: itemsCount,
+              itemBuilder: (BuildContext context,int index){
+                return buildBillItem(
+                  name: items[index]['description'],
+                  qty:items[index]['quantity'],
+                  price: items[index]['sellingPrice'],
+                  amount: items[index]['amount'],
+                );
+              }
+            ),
             SizedBox(height: 10,),
             buildDottedBorder(),
-            buildBillSum('Sub Total','25,000'),
-            buildBillSum('Discount','5,000'),
+            buildBillSum(
+              metric: 'Sub Total',
+              value: subTotal,
+            ),
+            buildBillSum(
+              metric:'Discount',
+              value:discount,
+            ),
             buildDottedBorder(),
-            buildBillSum('Total', '20,000'),
+            buildBillSum(
+              metric: 'Total',
+              value: total,
+            ),
 
           ],
         ),

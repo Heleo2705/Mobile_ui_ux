@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Container buildBillItem(String name, String qty, String price, String amount) {
+Container buildBillItem({String name, String qty, String price, String amount}) {
   return Container(
     padding: EdgeInsets.all(10),
     child: Row(
@@ -15,6 +15,7 @@ Container buildBillItem(String name, String qty, String price, String amount) {
                   color: Colors.grey[800],
                   fontSize: 12
               ),
+              softWrap: true,
             ),
           ),
         ),
@@ -28,6 +29,7 @@ Container buildBillItem(String name, String qty, String price, String amount) {
                   color: Colors.grey[800],
                   fontSize: 12
               ),
+              softWrap: true,
             ),
           ),
         ),
@@ -41,7 +43,9 @@ Container buildBillItem(String name, String qty, String price, String amount) {
                   color: Colors.grey[800],
                   fontSize: 12
               ),
+              softWrap: true,
             ),
+
           ),
         ),
         Expanded(
@@ -54,6 +58,7 @@ Container buildBillItem(String name, String qty, String price, String amount) {
                   color: Colors.grey[800],
                   fontSize: 12
               ),
+              softWrap: true,
             ),
           ),
         ),

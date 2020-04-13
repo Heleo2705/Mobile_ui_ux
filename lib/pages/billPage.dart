@@ -24,7 +24,7 @@ class _BillPageState extends State<BillPage> {
         child: Column(
           children: <Widget>[
             Card2(_data['bill']),
-            Expanded(child: BillCard(_data['bill'])),
+            Expanded(child: billCard(_data['bill'])),
             Row(
               children: <Widget>[
                 Expanded(

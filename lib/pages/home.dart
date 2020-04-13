@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:mobileuiux/widgets/Drawer.dart';
+import 'package:mobileuiux/widgets/NoBillsScreen.dart';
 import 'package:mobileuiux/widgets/Upgrade_premium.dart';
 import 'package:mobileuiux/widgets/card1.dart';
 import 'package:provider/provider.dart';
@@ -38,32 +39,40 @@ class _HomeState extends State<Home> {
             title: Text(''),
 //        backgroundColor: Colors.black,
           ),
-          body: Container(
-            color: Colors.grey[100],
-            child: Consumer<BillRepository>(builder: (context, b, child) {
-        
-              if (b.loading) {
-                
-                return ListView.builder(
-                    itemCount: b.list.length,
-                    itemBuilder: (con, i) {
-                      return card1(
+          body: TabBarView(
+            children: <Widget>[
+              Container(
+                color: Colors.grey[100],
+                child: Consumer<BillRepository>(builder: (context, b, child) {
+
+                  if (b.loading) {
+
+                    return ListView.builder(
+                      itemCount: b.list.length,
+                      itemBuilder: (con, i) {
+                        return card1(
                           context: _context,
                           billData: b.list[i],
                           productId: b.list[i].customerId,
                           purchaseDate: b.list[i].billInfo['purchaseDate'],
                           displayCity: b.list[i].store['displayAddress']['city'],
                           displayName: b.list[i].store['displayName'],
-                          // logo: b.list[i].store['brand']['logo'], //See here is stored the value of logo
+//                          logo: b.list[i].store['brand']['logo'], //See here is stored the value of logo
                           subTotal: b.list[i].subTotal,
-                      );
-                    });
-              }
-              return Text(
-                "Loading",
-                style: TextStyle(color: Colors.blue),
-              );
-            }),
+                        );
+                      });
+                  }
+                  return Text(
+                    "Loading",
+                    style: TextStyle(color: Colors.blue),
+                  );
+                }),
+              ),
+              Container(
+                color: Colors.white,
+                child: buildNoBills(),
+              ),
+            ],
           ),
           drawer: buildDrawer(context),
         ),

@@ -1,31 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobileuiux/widgets/DrawerHeader.dart';
 import 'dart:math' as math;
-import 'package:mobileuiux/classes/Item.dart';
 
-List<Item> bills = <Item>[
-  const Item(
-    name: 'BUSINESS',
-    icon: Icon(
-      Icons.business,
-      color: Colors.white38,
-    ),
-  ),
-  const Item(
-    name: 'OTHER',
-    icon: Icon(
-      Icons.all_inclusive,
-      color: Colors.white38,
-    ),
-  )
-];
-Item selectedBill = Item(
-  name: 'BUSINESS',
-  icon: Icon(
-    Icons.business,
-    color: Colors.white38,
-  ),
-);
 
 Drawer buildDrawer(BuildContext context) {
   return Drawer(
@@ -34,7 +10,7 @@ Drawer buildDrawer(BuildContext context) {
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
-            BuildDrawerHeader(selectedBill: selectedBill,bills: bills,),
+            BuildDrawerHeader(), //Yaha pe meko bas user ka naam cahiye..thats it
             Divider(
               color: Colors.white38,
               thickness: 1,

@@ -43,6 +43,7 @@ class verifyUser extends ChangeNotifier {
       "Content-Type": " application/json",
       "Accept": "application/json"
     });
+    print(response.statusCode);
     if (response.statusCode != 200) {
       return false;
     } else

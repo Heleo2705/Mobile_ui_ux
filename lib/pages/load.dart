@@ -11,10 +11,10 @@ class _LoadState extends State<Load> {
   void logoshow() async {
     verifyUser v=verifyUser();
     bool _if200=await v.checkPreviousToken();
-    if(!_if200)
+    // if(!_if200)
     Navigator.pushReplacementNamed(context, '/walkthrough');
-    else
-    Navigator.pushReplacementNamed(context, '/home');
+    // else
+    // Navigator.pushReplacementNamed(context, '/home');
   }
 
   @override

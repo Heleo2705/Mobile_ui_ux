@@ -20,6 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   http:
+  intl:
   provider:
   shared_preferences:
   pin_input_text_field:

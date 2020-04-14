@@ -108,10 +108,10 @@ class _OtpScreenState extends State<OtpScreen> {
                   Container(
                     padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         SizedBox(
-                          width: MediaQuery.of(context).size.width / 9,
+                          width: MediaQuery.of(context).size.width -100,
                           child: TextField(
                             style: TextStyle(
                               fontSize: medFont,
@@ -122,14 +122,9 @@ class _OtpScreenState extends State<OtpScreen> {
                             focusNode: n0,
                             textAlign: TextAlign.center,
                             onChanged: (s) {
-                              // _pin = _pin + _t1.text;
-                              if(s.isEmpty) FocusScope.of(context).requestFocus(n0);
-                              else FocusScope.of(context).requestFocus(n1);
-                              _t1.text = s;
-                              _t1.selection = TextSelection.collapsed(
-                                offset: _t1.text.length);
+                             
                             },
-                            maxLength: 1,
+                            maxLength: 6,
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
@@ -137,141 +132,116 @@ class _OtpScreenState extends State<OtpScreen> {
                                         color: Colors.grey[800], width: 2))),
                           ),
                         ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 9,
-                          child: TextField(
-                            style: TextStyle(
-                              fontSize: medFont,
-                              color: Colors.grey[800],
-                              height: otpBoxHeight,
-                            ),
-                            focusNode: n1,
-                            controller: _t2,
-                            textAlign: TextAlign.center,
-                            onChanged: (s) {
-                              // _pin = _pin + _t2.text;
-                              if(s.isEmpty) FocusScope.of(context).requestFocus(n0);
-                              else FocusScope.of(context).requestFocus(n2);
-                              _t2.text = s;
-                              _t2.selection = TextSelection.collapsed(
-                                offset: _t2.text.length);
-                            },
-                            maxLength: 1,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.grey[800], width: 2))),
-                          ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 9,
-                          child: TextField(
-                            style: TextStyle(
-                              fontSize: medFont,
-                              color: Colors.grey[800],
-                              height: otpBoxHeight,
-                            ),
-                            focusNode: n2,
-                            controller: _t3,
-                            textAlign: TextAlign.center,
-                            onChanged: (s) {
-                              // _pin = _pin + _t3.text;
-                              if(s.isEmpty) FocusScope.of(context).requestFocus(n1);
-                              else FocusScope.of(context).requestFocus(n3);
-                              _t3.text = s;
-                              _t3.selection = TextSelection.collapsed(
-                                offset: _t3.text.length);
-                            },
-                            maxLength: 1,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.grey[800], width: 2))),
-                          ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 9,
-                          child: TextField(
-                            style: TextStyle(
-                              fontSize: medFont,
-                              color: Colors.grey[800],
-                              height: otpBoxHeight,
-                            ),
-                            focusNode: n3,
-                            controller: _t4,
-                            textAlign: TextAlign.center,
-                            onChanged: (s) {
-                              // _pin = _pin + _t4.text;
-                              if(s.isEmpty) FocusScope.of(context).requestFocus(n2);
-                              else FocusScope.of(context).requestFocus(n4);
-                              _t4.text = s;
-                              _t4.selection = TextSelection.collapsed(
-                                offset: _t4.text.length);
-                            },
-                            maxLength: 1,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.grey[800], width: 2))),
-                          ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 9,
-                          child: TextField(
-                            style: TextStyle(
-                              fontSize: medFont,
-                              color: Colors.grey[800],
-                              height: otpBoxHeight,
-                            ),
-                            focusNode: n4,
-                            controller: _t5,
-                            textAlign: TextAlign.center,
-                            onChanged: (s) {
-                              // _pin = _pin + _t5.text;
-                              if(s.isEmpty) FocusScope.of(context).requestFocus(n3);
-                              else FocusScope.of(context).requestFocus(n5);
-                              _t5.text = s;
-                              _t5.selection = TextSelection.collapsed(
-                                offset: _t5.text.length);
-                            },
-                            maxLength: 1,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.grey[800], width: 2))),
-                          ),
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width / 9,
-                          child: TextField(
-                            style: TextStyle(
-                              fontSize: medFont,
-                              color: Colors.grey[800],
-                              height: otpBoxHeight,
-                            ),
-                            focusNode: n5,
-                            controller: _t6,
-                            textAlign: TextAlign.center,
-                            onChanged: (s) {
-                              // _pin = _pin + _t6.text;
-                              // FocusScope.of(context).requestFocus(n1);
-                              if(s.isEmpty) FocusScope.of(context).requestFocus(n4);
-                              _t6.text = s;
-                              _t6.selection = TextSelection.collapsed(
-                                offset: _t6.text.length);
-                            },
-                            maxLength: 1,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Colors.grey[800], width: 2))),
-                          ),
-                        ),
+                        // SizedBox(
+                        //   width: MediaQuery.of(context).size.width / 9,
+                        //   child: TextField(
+                        //     style: TextStyle(
+                        //       fontSize: medFont,
+                        //       color: Colors.grey[800],
+                        //       height: otpBoxHeight,
+                        //     ),
+                        //     focusNode: n1,
+                        //     controller: _t2,
+                        //     textAlign: TextAlign.center,
+                        //     onChanged: (s) {
+                              
+                        //     },
+                        //     maxLength: 1,
+                        //     keyboardType: TextInputType.number,
+                        //     decoration: InputDecoration(
+                        //         enabledBorder: UnderlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: Colors.grey[800], width: 2))),
+                        //   ),
+                        // ),
+                        // SizedBox(
+                        //   width: MediaQuery.of(context).size.width / 9,
+                        //   child: TextField(
+                        //     style: TextStyle(
+                        //       fontSize: medFont,
+                        //       color: Colors.grey[800],
+                        //       height: otpBoxHeight,
+                        //     ),
+                        //     focusNode: n2,
+                        //     controller: _t3,
+                        //     textAlign: TextAlign.center,
+                        //     onChanged: (s) {
+                             
+                        //     },
+                        //     maxLength: 1,
+                        //     keyboardType: TextInputType.number,
+                        //     decoration: InputDecoration(
+                        //         enabledBorder: UnderlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: Colors.grey[800], width: 2))),
+                        //   ),
+                        // ),
+                        // SizedBox(
+                        //   width: MediaQuery.of(context).size.width / 9,
+                        //   child: TextField(
+                        //     style: TextStyle(
+                        //       fontSize: medFont,
+                        //       color: Colors.grey[800],
+                        //       height: otpBoxHeight,
+                        //     ),
+                        //     focusNode: n3,
+                        //     controller: _t4,
+                        //     textAlign: TextAlign.center,
+                        //     onChanged: (s) {
+                              
+                        //     },
+                        //     maxLength: 1,
+                        //     keyboardType: TextInputType.number,
+                        //     decoration: InputDecoration(
+                        //         enabledBorder: UnderlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: Colors.grey[800], width: 2))),
+                        //   ),
+                        // ),
+                        // SizedBox(
+                        //   width: MediaQuery.of(context).size.width / 9,
+                        //   child: TextField(
+                        //     style: TextStyle(
+                        //       fontSize: medFont,
+                        //       color: Colors.grey[800],
+                        //       height: otpBoxHeight,
+                        //     ),
+                        //     focusNode: n4,
+                        //     controller: _t5,
+                        //     textAlign: TextAlign.center,
+                        //     onChanged: (s) {
+                            
+                        //     },
+                        //     maxLength: 1,
+                        //     keyboardType: TextInputType.number,
+                        //     decoration: InputDecoration(
+                        //         enabledBorder: UnderlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: Colors.grey[800], width: 2))),
+                        //   ),
+                        // ),
+                        // SizedBox(
+                        //   width: MediaQuery.of(context).size.width / 9,
+                        //   child: TextField(
+                        //     style: TextStyle(
+                        //       fontSize: medFont,
+                        //       color: Colors.grey[800],
+                        //       height: otpBoxHeight,
+                        //     ),
+                        //     focusNode: n5,
+                        //     controller: _t6,
+                        //     textAlign: TextAlign.center,
+                        //     onChanged: (s) {
+                             
+                        //     },
+                        //     maxLength: 1,
+                        //     keyboardType: TextInputType.number,
+                        //     decoration: InputDecoration(
+                        //         enabledBorder: UnderlineInputBorder(
+                        //             borderSide: BorderSide(
+                        //                 color: Colors.grey[800], width: 2))),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ),
@@ -289,12 +259,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         child: OutlineButton(
                           onPressed: () async {
                             _pin = _pin +
-                                _t1.text +
-                                _t2.text +
-                                _t3.text +
-                                _t4.text +
-                                _t5.text +
-                                _t6.text;
+                                _t1.text;
                             print(_pin);
 
                             verifyUser v = verifyUser.start(

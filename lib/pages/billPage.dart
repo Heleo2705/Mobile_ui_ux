@@ -20,32 +20,37 @@ class _BillPageState extends State<BillPage> {
         backgroundColor: Colors.white,
         iconTheme: IconThemeData(color: Colors.black, size: 30),
       ),
-      body: Container(
-        child: Column(
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              Card2(_data['bill']),
+              billCard(_data['bill']),
+              
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
           children: <Widget>[
-            Card2(_data['bill']),
-            Expanded(child: billCard(_data['bill'])),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: FlatButton(
-                    onPressed: () {},
-                    color: Colors.black,
-                    child: Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Text(
-                        'MOVE TO PERSONAL',
-                        style: TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w300,
-                          letterSpacing: 1,
-                        ),
-                      ),
+            Expanded(
+              child: FlatButton(
+                onPressed: () {},
+                color: Colors.black,
+                child: Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Text(
+                    'MOVE TO PERSONAL',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w300,
+                      letterSpacing: 1,
                     ),
                   ),
-                )
-              ],
-            ),
+                ),
+              ),
+            )
           ],
         ),
       ),

@@ -13,7 +13,7 @@ class _LoadState extends State<Load> {
     bool _if200=await v.checkPreviousToken();
     // if(!_if200)
     Navigator.pushReplacementNamed(context, '/walkthrough');
-    // else
+    //  else
     // Navigator.pushReplacementNamed(context, '/home');
   }
 

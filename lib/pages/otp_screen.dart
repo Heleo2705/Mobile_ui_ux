@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileuiux/classes/repository/BillRepository.dart';
 import 'package:mobileuiux/classes/repository/verificationRepository.dart';
-
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,6 +22,7 @@ class _OtpScreenState extends State<OtpScreen> {
   @override
   Widget build(BuildContext context) {
     Map _data = ModalRoute.of(context).settings.arguments;
+    BuildContext _context1 = context;
 
     String number = _data['number'];
     String countryCode = _data['countryCode'];
@@ -30,24 +31,22 @@ class _OtpScreenState extends State<OtpScreen> {
     bool _isClicked = false;
 
     TextEditingController _t1 = TextEditingController();
-    TextEditingController _t2 = TextEditingController();
-    TextEditingController _t3 = TextEditingController();
-    TextEditingController _t4 = TextEditingController();
-    TextEditingController _t5 = TextEditingController();
-    TextEditingController _t6 = TextEditingController();
+
+    final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
     FocusNode n0 = FocusNode();
-    FocusNode n1 = FocusNode();
-    FocusNode n2 = FocusNode();
-    FocusNode n3 = FocusNode();
-    FocusNode n4 = FocusNode();
-    FocusNode n5 = FocusNode();
+    // FocusNode n1 = FocusNode();
+    // FocusNode n2 = FocusNode();
+    // FocusNode n3 = FocusNode();
+    // FocusNode n4 = FocusNode();
+    // FocusNode n5 = FocusNode();
 
     var medFont = 20.0;
     var otpBoxHeight = 1.5;
     return ChangeNotifierProvider(
       create: (context) => verifyUser(),
       child: Form(
+        key: _formKey,
         child: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
@@ -111,19 +110,22 @@ class _OtpScreenState extends State<OtpScreen> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         SizedBox(
-                          width: MediaQuery.of(context).size.width -100,
-                          child: TextField(
+                          width: MediaQuery.of(context).size.width - 100,
+                          child: TextFormField(
+                            autofocus: true,
                             style: TextStyle(
                               fontSize: medFont,
                               color: Colors.grey[800],
                               height: otpBoxHeight,
                             ),
+                            validator: (s) {
+                              if (s.length < 6) return "Input OTP correctly";
+                              return null;
+                            },
                             controller: _t1,
                             focusNode: n0,
                             textAlign: TextAlign.center,
-                            onChanged: (s) {
-                             
-                            },
+                            onChanged: (s) {},
                             maxLength: 6,
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
@@ -144,7 +146,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         //     controller: _t2,
                         //     textAlign: TextAlign.center,
                         //     onChanged: (s) {
-                              
+
                         //     },
                         //     maxLength: 1,
                         //     keyboardType: TextInputType.number,
@@ -166,7 +168,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         //     controller: _t3,
                         //     textAlign: TextAlign.center,
                         //     onChanged: (s) {
-                             
+
                         //     },
                         //     maxLength: 1,
                         //     keyboardType: TextInputType.number,
@@ -188,7 +190,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         //     controller: _t4,
                         //     textAlign: TextAlign.center,
                         //     onChanged: (s) {
-                              
+
                         //     },
                         //     maxLength: 1,
                         //     keyboardType: TextInputType.number,
@@ -210,7 +212,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         //     controller: _t5,
                         //     textAlign: TextAlign.center,
                         //     onChanged: (s) {
-                            
+
                         //     },
                         //     maxLength: 1,
                         //     keyboardType: TextInputType.number,
@@ -232,7 +234,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         //     controller: _t6,
                         //     textAlign: TextAlign.center,
                         //     onChanged: (s) {
-                             
+
                         //     },
                         //     maxLength: 1,
                         //     keyboardType: TextInputType.number,
@@ -258,19 +260,21 @@ class _OtpScreenState extends State<OtpScreen> {
                         width: 350,
                         child: OutlineButton(
                           onPressed: () async {
-                            _pin = _pin +
-                                _t1.text;
-                            print(_pin);
+                            if (_formKey.currentState.validate()) {
+                              _pin = _pin + _t1.text;
+                              print(_pin);
 
-                            verifyUser v = verifyUser.start(
-                                countryCode: countryCode,
-                                number: number,
-                                otp: _pin);
-                            await v.authApicall();
+                              verifyUser v = verifyUser.start(
+                                  countryCode: countryCode,
+                                  number: number,
+                                  otp: _pin);
+                              _showDialog(_context1);
+                              await v.authApicall();
+                              Navigator.pop(context);
+                              _isClicked = true;
 
-                            _isClicked = !_isClicked;
-                            // if (!v.loading)
-                            Navigator.pushNamed(context, '/home');
+                              Navigator.pushNamed(context, '/home');
+                            }
                           },
                           textColor: Colors.black,
                           shape: RoundedRectangleBorder(
@@ -286,7 +290,7 @@ class _OtpScreenState extends State<OtpScreen> {
                       ),
                     ),
                     builder: (context, v, child) {
-                      return child;
+                      if (!_isClicked) return child;
                     },
                   ),
 
@@ -302,11 +306,7 @@ class _OtpScreenState extends State<OtpScreen> {
                   GestureDetector(
                     onTap: () {
                       _t1.clear();
-                      _t2.clear();
-                      _t3.clear();
-                      _t4.clear();
-                      _t5.clear();
-                      _t6.clear();
+
                       _pin = '';
                       verifyUser v = verifyUser.start(
                           countryCode: countryCode, number: number, otp: _pin);
@@ -327,4 +327,21 @@ class _OtpScreenState extends State<OtpScreen> {
       ),
     );
   }
+}
+
+void _showDialog(BuildContext context) {
+  showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          backgroundColor: Colors.white,
+          content: Container(
+            height: 100,
+            width: 100,
+            child: SpinKitFadingFour(
+              color: Colors.black12,
+            ),
+          ),
+        );
+      });
 }

@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:mobileuiux/classes/billdata.dart';
 
 Widget Card2(BillsData bill){
+
+  String logo = bill.store['brand']['logo'];
+  if(logo==null) logo = "https://logosvector.net/wp-content/themes/iLoveLogos/img/not-available.jpg";
+  String name = bill.store['displayName'];
+  if(name==null) name="Not Available";
+  String loca = bill.store['displayAddress']['city'];
+  if(loca==null) loca = 'Not Available';
+  String total = bill.subTotal;
+
   return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
@@ -16,7 +25,7 @@ Widget Card2(BillsData bill){
               Expanded(
                 flex: 2,
                 child: Image(
-                  image: AssetImage('assets/images/mcd.png'),
+                  image: NetworkImage(logo),
                   height: 90,
                   width: 90,
                 ),
@@ -30,7 +39,7 @@ Widget Card2(BillsData bill){
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        'McDonalds',
+                        name,
                         style: TextStyle(
                             color: Colors.grey[900],
                             fontSize: 22
@@ -46,7 +55,7 @@ Widget Card2(BillsData bill){
                             size: 12,
                           ),
                           Text(
-                            'Phoenix Marketcity',
+                            loca,
                             style: TextStyle(
                               color: Colors.black54,
                               fontSize: 12,
@@ -87,7 +96,7 @@ Widget Card2(BillsData bill){
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            '@ 20,000',
+                            '₹ '+total,
                             style: TextStyle(
                                 fontSize: 18,
                                 color: Colors.black,

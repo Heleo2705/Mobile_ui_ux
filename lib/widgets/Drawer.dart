@@ -33,7 +33,7 @@ Drawer buildDrawer(BuildContext context) {
                 ),
               ),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, '/profile');
               },
             ),
             Divider(

@@ -73,24 +73,7 @@ Widget card1(
                     )
                   ],
                 )),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                          color: Colors.grey[800],
-                          borderRadius: BorderRadius.only(
-                            bottomLeft: Radius.circular(15),
-                            topLeft: Radius.circular(15),
-                          )),
-                      child: Text(
-                        'FOOD & DRINKS',
-                        style: TextStyle(fontSize: 10),
-                      ),
-                      padding: EdgeInsets.fromLTRB(30, 5, 15, 5),
-                    ),
-                  ],
-                )
+
               ],
             ),
           ),

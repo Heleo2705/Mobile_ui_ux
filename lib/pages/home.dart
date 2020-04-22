@@ -32,8 +32,8 @@ class _HomeState extends State<Home> {
           appBar: AppBar(
             bottom: TabBar(
               tabs: <Widget>[
-                Tab(icon: Icon(Icons.business), text: 'Bills'),
-                Tab(icon: Icon(Icons.card_giftcard), text: 'Premium'),
+                Tab( text: 'Bills'),
+                Tab( text: 'Premium'),
               ],
             ),
             title: Text(''),

@@ -1,3 +1,5 @@
+
+import 'package:mobileuiux/pages/ProfilePage.dart';
 import 'package:flutter/material.dart';
 import 'package:mobileuiux/pages/home.dart';
 import 'package:mobileuiux/pages/otp_screen.dart';
@@ -8,7 +10,8 @@ import 'package:mobileuiux/pages/billPage.dart';
 import 'package:mobileuiux/pages/questions/q1.dart';
 import 'package:http/http.dart';
 import 'dart:convert';
-
+import 'package:mobileuiux/pages/WidgetsTestingPage.dart';
+import 'package:mobileuiux/pages/billPage2.dart';
 void main() {
 //  response();
   runApp(myApp());
@@ -32,6 +35,9 @@ Widget myApp() {
       '/otp': (context) => OtpScreen(),
       '/billPage': (context) => BillPage(),
       '/q1': (context) => Q1(),
+      '/tester': (context) => WidgetTester(),
+      '/profile': (context) => ProfilePage(),
+      '/billpage2' : (context) => BillPage2(),
     },
   );
 }
